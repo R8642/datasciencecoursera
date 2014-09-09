@@ -43,7 +43,8 @@ extractedData <- joinedData[,meansd]
 dim(extractedData) # 10299*66
 head(extractedData)
 
-# Requirement 3. Uses descriptive activity names to name the activities in the # data set
+# Requirement 3. Uses descriptive activity names to name the activities in the 
+# data set
 
 activity <- read.table("./UCI HAR Dataset/activity_labels.txt")
 activity[, 2] <- tolower(gsub("_", " ", activity[, 2]))
