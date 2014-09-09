@@ -1,4 +1,4 @@
-# 1. Merges the training and the test sets to create one data set.
+# Requirement 1. Merges the training and the test sets to create one data set.
 
 trainData <- read.table("./UCI HAR Dataset/train/X_train.txt")
 dim(trainData) # 7352*561
@@ -32,7 +32,8 @@ dim(mergedData) # 10299*563
 head(mergedData)
 
 
-# 2. Extracts only the measurements on the mean and standard deviation for each measurement.
+# Requirement 2. Extracts only the measurements on the mean and standard 
+# deviation for each measurement.
 
 features <- read.table("./UCI HAR Dataset/features.txt")
 dim(features) # 561*2
@@ -42,7 +43,7 @@ extractedData <- joinedData[,meansd]
 dim(extractedData) # 10299*66
 head(extractedData)
 
-# 3. Uses descriptive activity names to name the activities in the data set
+# Requirement 3. Uses descriptive activity names to name the activities in the # data set
 
 activity <- read.table("./UCI HAR Dataset/activity_labels.txt")
 activity[, 2] <- tolower(gsub("_", " ", activity[, 2]))
@@ -52,7 +53,8 @@ names(joinedLabel) <- "Activity"
 head(joinedLabel)
 
 
-# 4. Appropriately labels the data set with descriptive activity names.
+# Requirement 4. Appropriately labels the data set with descriptive activity 
+# names.
 
 names(joinedSubject) <- "Subject"
 colnames(extractedData) <- features$V2[meansd]
@@ -63,8 +65,8 @@ head(firstData)
 write.table(firstData, "first_dataset.txt") # write out the 1st dataset
 
 
-# 5. Creates a second, independent tidy data set with the average of
-# each variable for each activity and each subject.
+# Requirement 5. Creates a second, independent tidy data set with the 
+# average of each variable for each activity and each subject.
 
 library("plyr")
 
